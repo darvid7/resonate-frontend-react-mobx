@@ -12,6 +12,4 @@ To get this to deploy on heroku I hacked together I made:
 - `./index.html` point to `./dist/bundle.js` so it serves the react frontend.
 - a start script which starts the express server.
 
-When deving just use `npm run dev` can test localhost and stuff on it, when deploying run `npm run build` then deploy with remembering to add in `./dist`*[]: 
-
- 
+When deving just use `npm run dev` can test localhost and stuff on it, when deploying run `npm run build` then deploy with remembering to add in `./dist`.
