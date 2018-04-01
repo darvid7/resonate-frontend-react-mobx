@@ -34,21 +34,21 @@ let getData = function() {
 
     if (data.length === 0) {
       // No data was returned.
-      console.log('in here')
       data.push(badThingsHappened); // Push default error card.
     }
     // Mobx will re-render when mutating @ovservable.
     // Check if arrays have same data to prevent this, ideally this should be done server side with server based events.
+    console.log('data len: ' + data.length);
+    console.log('twitterFeed len: ' + state.twitterFeed.length);
     if (data.length === state.twitterFeed.length) {
       let same = true;
       console.log('comparing');
-      console.log(data);
-      console.log(state.twitterFeed);
       for(let i = 0; i < data.length; i++) {
         console.log('index: ' + i);
-        console.log(data[i]);
-        console.log(state.twitterFeed[i]);
-        if (data[i] !== state.twitterFeed[i]) {
+        let comparisonData = JSON.stringify(data[i], Object.keys(data[i]).sort());
+        let comparisonState = JSON.stringify(state.twitterFeed[i], Object.keys(state.twitterFeed[i]).sort());
+        if (comparisonData !== comparisonState) {
+          console.log("NOT SAME");
           same = false;
           break;
         }
@@ -69,8 +69,8 @@ let getData = function() {
 };
 getData();
 
-// Poll every 5 seconds.
-setInterval(getData, 5000);
+// Poll every 15 seconds.
+setInterval(getData, 15000);
 
 const App = () => (
     <div

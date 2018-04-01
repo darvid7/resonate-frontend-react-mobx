@@ -13,3 +13,5 @@ To get this to deploy on heroku I hacked together I made:
 - a start script which starts the express server.
 
 When deving just use `npm run dev` can test localhost and stuff on it, when deploying run `npm run build` then deploy with remembering to add in `./dist`.
+
+Side note: I've stuffed up hot module replacement loading the browser somehow, fix later.

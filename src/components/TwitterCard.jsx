@@ -21,7 +21,6 @@ class TwitterCard extends React.Component {
           {this.props.text}
           <div>
             {this.props.linkUrls.map((data, index) => {
-              console.log(data);
               return (<a key={index} href={data}>{data}</a>);
             })}
           </div>

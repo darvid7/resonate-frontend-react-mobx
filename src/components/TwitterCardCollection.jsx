@@ -27,8 +27,6 @@ class TwitterCardCollection extends React.Component {
           flexWrap:"wrap",
         }}>
         {this.props.feed.map((data, index) => {
-          console.log('data');
-          console.log(data);
           let text = data['text'];
           let result = this.parseForTwitterLinks(text);
           text = result[0];
