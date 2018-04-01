@@ -4,7 +4,7 @@
   "description": "Boilerplate for MobX + React project with JSX, ES6 and decorator compilation",
   "scripts": {
     "dev": "webpack-dev-server --hot --open",
-    "start": "webpack-dev-server -p",
+    "start": "node ./bin/www",
     "lint": "eslint src",
     "build": "webpack --env production"
   },
@@ -43,6 +43,13 @@
     "mobx-react-devtools": "^4.2.11",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "twitter-node-client": "0.0.6"
+    "twitter-node-client": "0.0.6",
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2"
   }
 }
