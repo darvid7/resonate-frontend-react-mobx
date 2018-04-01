@@ -26,21 +26,37 @@ const badThingsHappened = {
 
 let getData = function() {
   axios.get('https://resonate-backend.herokuapp.com/twitter').then(response => {
-    let data = response["data"];
+  // axios.get('http://localhost:3000/twitter/').then(response => {
+
+  let data = response["data"];
     console.log('axios call');
     console.log(data);
 
     if (data.length === 0) {
       // No data was returned.
+      console.log('in here')
       data.push(badThingsHappened); // Push default error card.
     }
     // Mobx will re-render when mutating @ovservable.
     // Check if arrays have same data to prevent this, ideally this should be done server side with server based events.
-    // array.toString() robust way of checking arrays are equal.
-    // https://stackoverflow.com/questions/22395357/how-to-compare-two-arrays-are-equal-using-javascript
-    if (data.toString() === state.twitterFeed.toString()) {
-      console.log("Arrays have the same info.");
-      return;
+    if (data.length === state.twitterFeed.length) {
+      let same = true;
+      console.log('comparing');
+      console.log(data);
+      console.log(state.twitterFeed);
+      for(let i = 0; i < data.length; i++) {
+        console.log('index: ' + i);
+        console.log(data[i]);
+        console.log(state.twitterFeed[i]);
+        if (data[i] !== state.twitterFeed[i]) {
+          same = false;
+          break;
+        }
+      }
+      if (same) {
+        console.log("Arrays have the same info.");
+        return;
+      }
     }
 
     // Clear the array without change reference so mobx can still do it's magic.

@@ -8,8 +8,12 @@ class TwitterCardCollection extends React.Component {
   parseForTwitterLinks(text) {
     let httpPattern = 'https://t\\S*';
     let matches = text.match(httpPattern);
-    let truncateIndex = text.indexOf(matches[0]);
-    text = text.slice(0, truncateIndex);
+    if (matches !== null && matches !== undefined) {
+      let truncateIndex = text.indexOf(matches[0]);
+      text = text.slice(0, truncateIndex);
+    } else {
+      matches = [];
+    }
     return [text, matches];
   };
 

@@ -1,8 +1,6 @@
 import {Card, CardTitle, CardText, CardMedia} from 'material-ui/Card';
 import React from "react";
-import {observer} from 'mobx-react';
 
-@observer
 class TwitterCard extends React.Component {
 
   render() {

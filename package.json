@@ -4,7 +4,8 @@
   "description": "Boilerplate for MobX + React project with JSX, ES6 and decorator compilation",
   "scripts": {
     "start": "webpack-dev-server --hot --open",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "build": "webpack --config webpack.conf.js"
   },
   "repository": {
     "type": "git",
